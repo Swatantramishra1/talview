@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="MI - Intelligence center">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<title>Intelligence Center</title>
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/ic.ico">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Bootstrap css -->
+<!-- build:[href] assets/css/ -->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<!-- /build -->
+
+<!-- Propeller css -->
+<!-- build:[href] assets/css/ -->
+<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+<!-- /build -->
+
+<!-- Propeller theme css-->
+<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+
+<!-- Propeller admin theme css-->
+<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+
+
+
+</head>
+
+<body class="body-custom" ng-app="myApp" ng-controller="authCtrl">
+<div class="logincard">
+  	<div class="pmd-card card-default pmd-z-depth">
+		<div class="login-card">
+			<form name="loginForm">
+				<div class="pmd-card-title card-header-border text-center">
+					<div class="loginlogo">
+						<a href="javascript:void(0);"><img src="themes/images/user.png" style="width: 70px" alt="Logo"></a>
+					</div>
+					<h3>Sign In <span>to <strong>Talview</strong></span></h3>
+				</div>
+				
+				<div class="pmd-card-body">
+					<div class="alert alert-success" role="alert" id="messagview"> Oh snap! Change a few things up and try submitting again. </div>
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="inputError1" class="control-label pmd-input-group-label">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
+                            <input type="text" class="form-control" ng-model="authLogin.username" id="loginUserName" name="loginUserName">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="inputError11" class="control-label pmd-input-group-label">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
+                            <input type="password" class="form-control" ng-model="authLogin.password" id="loginUserPassword" name="loginUserPassword">
+                        </div>
+                    </div>
+                </div>
+				<div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
+
+					<button type="button" id="btnLogin" ng-click="login()" class="btn pmd-ripple-effect btn-primary btn-block" >login</button>
+
+				</div>
+				
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<!-- Scripts Starts -->
+<!-- build:[src] assets/js/ -->
+<script src="assets/js/jquery-1.12.2.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/propeller.min.js"></script>
+<!-- /build -->
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").addClass("open");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+			$(this).find("a[href='"+sPage+"']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+	});
+</script>
+<!-- login page sections show hide -->
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	 $('.app-list-icon li a').addClass("active");
+		$(".login-for").click(function(){
+			$('.login-card').hide()
+			$('.forgot-password-card').show();
+		});
+		$(".signin").click(function(){
+			$('.login-card').show()
+			$('.forgot-password-card').hide();
+		});
+	});
+</script>
+<!-- Scripts Ends -->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+
+
+<script src="script/config/config.js"></script>
+<script src="script/module/login.js"></script>
+<script src="script/controller/auth/authCtrl.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="content" onload="init();">
+    <div class="component-box">
+        <div class="row">
+            <div class="col-lg-6">
+                <button class="btn btn-success" ng-click="startWebcam();">Start WebCam</button>
+                <button class="btn btn-danger" ng-click="stopWebcam();">Stop WebCam</button>
+                <button class="btn btn-success" ng-click="snapshot();">Take Snapshot</button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4"> <video id="player" autoplay="true"></video></div>
+            <div class="col-lg-8">
+                <canvas  id="myCanvas" width="400" height="350"></canvas>
+            </div>
+        </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<style>
+    #content{
+        margin-top: 100px;
+    }
+    video{
+        margin-top: 20px;
+        height: 200px;
+    }
+</style>
+

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="" ng-app="myApp" id="index" ng-cloak="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="talview">
+  <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+
+  <title>talview</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap css -->
+  <!-- build:[href] assets/css/ -->
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+  <!-- /build -->
+  <!-- /build -->
+
+  <!-- Propeller theme css-->
+  <link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+
+  <!-- Propeller admin theme css-->
+  <link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+  <script src="assets/js/jquery.js"></script>
+  <link rel="stylesheet" href="otherCss/fontawesom/css/font-awesome.min.css">
+
+  <base href="/">
+
+
+
+</head>
+
+<body>
+<!-- Nav menu with side menu -->
+<div class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth" style="background-color: #174350;border: 1px solid #174350;" id="MordorNav">
+  <div class="navbar-inner"> <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button class="pmd-ripple-effect navbar-toggle pmd-navbar-toggle" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="javascript:void(0);" class="navbar-brand navbar-brand-custome"><img src="https://www.talview.com/img/mockup/logo_white.png" style="width: auto; height: 24px ; display: inline ; margin-bottom:18px !important;">
+
+      </a>
+    </div>
+    <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse pmd-navbar-sidebar">
+      <div class="dropdown pmd-dropdown pmd-user-info pull-right" style="padding-top: 8px;padding-right: 2.5%;">
+        <a href="javascript:void(0);" class="btn-user dropdown-toggle media" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+          <div class="media-left">
+            <i class="fa fa-bell-o" aria-hidden="true" style="color: white !important;font-size: 20px"></i>
+          </div>
+
+          <div class="media-right media-middle">
+            <i class="fa fa-user-o" aria-hidden="true" style="color: white !important;font-size: 20px"></i>
+          </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" style="z-index:1478 !important" role="menu">
+          <li><a style="cursor: pointer">Edit Profile</a></li>
+          <li><a style="cursor: pointer" ng-click="logout()">Logout</a></li>
+        </ul>
+      </div>
+      <ul>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+  </div>
+  <div class="pmd-sidebar-overlay"></div>
+</div>
+<div class="wrapper" >
+  <div class="container-fluid" >
+
+    <div class="pmd-sidebar-overlay"></div>
+
+    <div ui-view class="container-fluid"></div>
+  </div>
+</div>
+
+
+
+
+<script src="assets/js/jquery-1.12.2.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- build:[src] assets/js/ -->
+<script src="assets/js/propeller.min.js"></script>
+
+<!-- /build -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script src="otherJS/angular/angular.route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+<script data-require="angular-mocks@*" data-semver="1.2.16" src="https://code.angularjs.org/1.2.16/angular-mocks.js"></script>
+<script src="otherJS/angular/textAngular-sanitize.min.js"></script>
+
+
+<!--<script src="otherJS/dropdown.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/core.js"></script>
+<script src="script/config/config.js"></script>
+<script src="script/module/app.js"></script>
+<script src="script/module/app.router.js"></script>
+<script src="script/service/service.js"></script>
+<script src="script/controller/main/main.js"></script>
+
+</body>
+</html>
