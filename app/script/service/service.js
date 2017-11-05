@@ -81,11 +81,55 @@ app.service('talViewSrvc', ['$http', '$q', '$httpParamSerializer', function ($ht
         }
 
     };
+    getOnloadData = {
 
+        getPromise: function (username) {
 
+            var promise = $http.get(username),
+                deferObject = deferObject || $q.defer();
+
+            promise.then(
+                // OnSuccess function
+                function (answer) {
+                    // This code will only run if we have a successful promise.
+                    deferObject.resolve(answer);
+                },
+                // OnFailure function
+                function (reason) {
+                    // This code will only run if we have a failed promise.
+                    deferObject.reject(reason);
+                });
+
+            return deferObject.promise;
+        }
+    };
+    getContainsFile = {
+
+        getPromise: function (username) {
+
+            var promise = $http.get(username),
+                deferObject = deferObject || $q.defer();
+
+            promise.then(
+                // OnSuccess function
+                function (answer) {
+                    // This code will only run if we have a successful promise.
+                    deferObject.resolve(answer);
+                },
+                // OnFailure function
+                function (reason) {
+                    // This code will only run if we have a failed promise.
+                    deferObject.reject(reason);
+                });
+
+            return deferObject.promise;
+        }
+    };
 
     return {
         mediaPost    :    mediaPost ,
+        getOnloadData:getOnloadData,
+        getContainsFile:getContainsFile
     }
 
 }]);

@@ -1,19 +1,84 @@
 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" id="content" onload="init();">
     <div class="component-box">
         <div class="row">
+            <div class="col-lg-3" ng-repeat="item in repo_deta" data-target="#complete-dialog" data-toggle="modal"
+                 ng-click="showRepoDetails($index)" style="cursor: pointer">
+            <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form" >
+                <div class="pmd-card-title wrap_word" >
+                    <h2 class="pmd-card-title-text">{{item.name}}</h2>
+                    <span class="pmd-card-subtitle-text">{{item.full_name}}</span> </div>
+            </div>
+            </div>
+
+
+        </div>
+
+
+        <div tabindex="-1" class="modal fade" id="complete-dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="pmd-card-title-text">{{repo_details.basic.name}}</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-4">
+                                  ID
+                                </div>
+                                <div class="col-sm-8">
+                                 :  {{repo_details.basic.id}}
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-4">
+                                    Repo Avtar
+                                </div>
+                                <div class="col-sm-8">
+                                    :  <img src="{{repo_details.basic.owner.avatar_url}}" style="height:100px ">
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="max-height: 350px;overflow-y: auto">
+                                <h3>All file </h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Url</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="file_item in repo_details.contains" >
+                                            <td>{{file_item.name}}</td>
+                                            <td>{{file_item.html_url}}</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pmd-modal-action pmd-modal-bordered text-right">
+
+                        <button data-dismiss="modal" type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-default">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <!-- <div class="row">
             <div class="col-lg-6">
                 <button class="btn btn-success" ng-click="startWebcam();">Start WebCam</button>
                 <button class="btn btn-danger" ng-click="stopWebcam();">Stop WebCam</button>
                 <button class="btn btn-success" ng-click="snapshot();">Take Snapshot</button>
             </div>
-
-        </div>
-        <div class="row">
             <div class="col-lg-4"> <video id="player" autoplay="true"></video></div>
             <div class="col-lg-8">
                 <canvas  id="myCanvas" width="400" height="350"></canvas>
             </div>
-        </div>
+        </div>-->
 
 
 
@@ -25,9 +90,8 @@
     #content{
         margin-top: 100px;
     }
-    video{
-        margin-top: 20px;
-        height: 200px;
+    .wrap_word{
+        word-wrap: break-word;
     }
 </style>
 

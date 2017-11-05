@@ -1,5 +1,5 @@
 
-app.controller('mainCtrl', function($scope,$rootScope,talViewSrvc,$sce,$window,$interval,$timeout,$filter) {
+app.controller('mainCtrl', function($scope,$rootScope,talViewSrvc,$window,$interval,$timeout,$filter) {
 
             //--------------------
         // GET USER MEDIA CODE
@@ -93,8 +93,60 @@ app.controller('mainCtrl', function($scope,$rootScope,talViewSrvc,$sce,$window,$
             }
 
 
-            $scope.init();
+           // $scope.init();
+
+
     //------------------------------------------------------------------------------
+
+
+    $rootScope.userDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+   $scope.getRepo =  function () {
+       var mediaPost = talViewSrvc.getOnloadData.getPromise($rootScope.userDetails.repos_url);
+       mediaPost.then(
+           // OnSuccess function
+           function (answer) {
+               $scope.repo_deta = answer.data;
+           },
+           // OnFailure function
+           function (reason) {
+               checkValidation(reason)
+
+           }
+       )
+   }
+    $scope.getRepo()
+    $scope.repo_details = {
+       basic:{},
+        contains:[]
+    }
+    $scope.showRepoDetails = function (index) {
+        $scope.repo_details.contains=[];
+        $scope.repo_details.basic = $scope.repo_deta[index];
+        $scope.getContainsFile();
+    }
+
+    $scope.getContainsFile =  function () {
+      var url =   $scope.repo_details.basic.contents_url.substring(0, $scope.repo_details.basic.contents_url.length - 8)
+        var mediaPost = talViewSrvc.getContainsFile.getPromise(url);
+        mediaPost.then(
+            // OnSuccess function
+            function (answer) {
+                $scope.repo_details.contains = answer.data;
+            },
+            // OnFailure function
+            function (reason) {
+                checkValidation(reason)
+
+            }
+        )
+    }
+
+
+    $rootScope.logout = function() {
+        localStorage.setItem('userDetails','');
+        $window.location.href = '../login.html';
+    }
 });
 
 
